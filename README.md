@@ -130,6 +130,17 @@ Finally, the radius of curvature for the left and right lane lines is averaged, 
 ![fig144](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/ee9c3cde-171b-4ed7-ac88-d94ef20a4d21)
 
 
+The radius of curvature was initially calculated based on the values of the pixels, then it was decided to choose a more realistic measurement that reflects reality and therefore before executing the calculation of the radius of curvature, the x and y coordinates have been converted from pixel space to real world space. This involves measuring the length (y) and width (x) of the lane section we are projecting into our deformed image. This data was extracted from CARLA simulator. In this way, using the measure_curvature() function, the radius of curvature of the right and left lane lines in meter has been calculated by fitting a new polynomials to x and y in world space, computing also the difference and the average between the two curvatures.
+Moreover, it is also possible to calculate the distance and direction of the vehicle with respect to the center of the lane, in order to know exactly where it is. This can be done, based on two assumptions:
+
+ 
+•	The camera is mounted in the center-front part of the car, so that the center of the lane corresponds to the midpoint in the lower part of the image between the two lines detected
+•	The width of the road lane must be known (3.5 meters in Carla Simulator)
+
+The offset of the center of the lane from the center of the image (converted from pixel to meters) represents the distance of the vehicle from the center of the lane as shown below:
+
+![fig15](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/e4b57e5e-546e-4e8c-9d60-8e3ae176c413)
+
 
 
 
