@@ -37,6 +37,17 @@ It is possible to exploit combining the information of the x and y gradient thre
 ![fig333](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/294f2c36-58a5-4b12-a359-e07ca60faf86)
 
 
+These operations were performed on the original image converted to grayscale to make it easier to detect the edges. However, when performing this conversion, valuable information on color, such as yellow, is lost, which would be useful to give more strength to the identification of lane lines. For this reason, it is useful to take advantage of color spaces that provide more information about an image than just the gray scale in order to consistently detect objects under varying light conditions.
+A color space is a way to classify colors and represent them in digital images. This space can be considered as a 3D space, in which any color can be represented by a 3D coordinate of values R (red), G (green) and B (blue). For example, white has the coordinates (255, 255, 255), and therefore has the maximum value for R, G and B. However, RGB thresholding does not work that well in images that include the variation of light conditions or whenever lanes are of a different color like yellow. It works best on white lane pixels. Therefore, it is possible to split an image into separate R­ G-B components, which are often called channels. The brightest pixels indicate higher values of red (R), green (G) or blue (B) respectively. The R and G channels detect white and yellow lane lines and are therefore the most useful for isolating lane pixels, while channel B does not detect the yellow lane line. All channels vary according to different brightness levels.
+
+There are many other ways to represent colors in an image besides the RGB values (Figure 6.5 shows the most common ones) inspired by the human vision system. The most common color spaces used most frequently in image analysis and processing are transformations of a Cartesian RGB color space: the HSV color space (which stands for hue (H), saturation (S) and value (V)) and HLS space (which stands for hue (H), lightness (L) and saturation (S)).
+For both of these, H has a range, which span from O to 179 for degrees around the cylindrical color space. HLS Color Space isolates the lightness (L) component, which varies the most under different lighting conditions. H and S channels stay consistent in shadow or excessive brightness.
+Hue is the value that represents color independent of any change in brightness, on the other hand, Lightness and Value represent different ways to measure the relative lightness or darkness of a color and finally saturation is a measurement of colorfulness. 
+
+
+![fig44](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/13ebf4b8-2e16-4ef0-b927-0a62e9224d7c)
+
+
 
 
 
