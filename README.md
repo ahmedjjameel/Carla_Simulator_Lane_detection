@@ -126,8 +126,6 @@ Since the lane lines do not move much from one frame to another in a video, it i
 Given the polynomial fit for the left and right lane lines, the radius of curvature for each line is calculated according to formulas presented [here](https://www.intmath.com/applications-differentiation/8-radius-curvature.php). Also, the distance units from pixels to meters is converted, assuming 30 meters per 720 pixels in the vertical direction, and 3.7 meters per 700 pixels in the horizontal direction.
 Finally, the radius of curvature for the left and right lane lines is averaged, and reported this value in the final video's annotation.
 
-![fig14](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/794c84f1-5895-46a6-b640-69ec228687f7)
-
 
 ![fig144](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/ee9c3cde-171b-4ed7-ac88-d94ef20a4d21)
 
