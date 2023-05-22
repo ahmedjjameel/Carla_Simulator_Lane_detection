@@ -34,10 +34,7 @@ The Sobel operator used to obtain the gradients both in the direction of x and o
 It is possible to exploit combining the information of the x and y gradient threshold, the amplitude of the general gradient and the direction of the gradient, based on threshold values, to focus on the precise identification of the pixels that determine the lane lines. The combined result is shown below:
 
 
-
-![fig33](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/32b38146-dc40-4bb1-bd2d-f5f3aeaeb8cd)
-
-
+![fig333](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/294f2c36-58a5-4b12-a359-e07ca60faf86)
 
 
 
