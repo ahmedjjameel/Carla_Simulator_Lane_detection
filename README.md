@@ -1,4 +1,8 @@
 ## Carla Simulator Lane Detection
+
+![gif1](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/3db5fd20-a440-4c2e-8c01-13fe4fbcf748)  |   ![gif2](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/bcf975b5-066d-4d58-8630-07f5adea52b8)
+:-------------------------:|:-------------------------:
+
 The fundamental requirement for the implementation of lane detection systems lies in calculating the exact position of the vehicle with respect to the lane lines. For this purpose, it is necessary to use in-depth computer vision techniques to recognize particular features used to determine lane detection.
 This part is entirely dedicated to the analysis of the lane lines identification, which allows adding useful information such as the radius of curvature of the lane and the position of the vehicle with respect to the lane center, using OpenCV library. 
 The steps that exploit various and complex artificial vision techniques to extract particular features of road lanes from image frames are the following:
