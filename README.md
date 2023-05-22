@@ -33,6 +33,7 @@ The Sobel operator used to obtain the gradients both in the direction of x and o
 ![fig22](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/ae65a654-c657-4cb9-abc4-4ac1029f6d02)
 
 
+![fig22](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/e3fffdb2-cf7a-4901-a1d8-81d9bf143f5d)
 
 
 
