@@ -101,7 +101,27 @@ The histogram is divided exactly in half, based on its midpoint value, a left an
 The steps to execute the sliding windows method described below are searchable in the sliding_window(), skip_sliding_window() and display_poly() functions for Python program.
 Firstly, the histogram of the bottom half of the image is taken and it is split into two sides, one for each lane line in order to get the left and right peak. These peaks will represent the starting point to reconstruct the left and the right lines. After entering the parameters a priori to set the appearance of the windows, also called hyperparameters (like the number of sliding windows, the height of windows, the width of the windows margin, the minimum number of pixels found in order to re-center window), and having previously obtained the lane lines starting points using the histogram, it is possible to trace the curvature of the right and left lane lines.
 
+For both the right and left lane lines, the window will scroll to the left or right if it detects that the average position of the pixels activated within the window (i.e. if there are white pixels identifying the line) has moved. The steps required to implement the sliding window method are the following:
 
+1.	Loop through each window in nwindows (total number of sliding windows)
+2.	Identify the current window boundaries, this is based on a combination of the current window's starting point ( leftx_current and rightx_current), as well as the margin setted before
+3.	Draw windows on the image using cv2.rectangle() OpenCV function to be able to visually locate them in the space
+4.	Find out which activated pixels (nonzero pixels in x and y) from nonzeroy and nonzerox are inside the window
+5.	Enter these values in a list of indexes (to left_lane_inds and right_lane_inds), both for the right and left lane line
+6.	If the number of pixels found in step 4 is greater than the minpix parameter (i.e. the minimum number of pixels found needed to re-center window), re-center the window (ie leftx_current or rightx_current) based on the average position of these pixels
+7.	Extract left and right line pixel positions storing their x and y coordinates into a vector (leftx, lefty, rightx, righty)
+
+After finding all the pixels belonging to each lane line through the sliding window method, it is necessary to fit a polynomial to both line. In particular, polyfit(), a OpenCV function, applies a least squares polynomial fit of order 2 to the lane lines, returning polynomial coefficients. To identify the pixels of the lane lines, their x and y pixel positions were used to adapt to a polynomial curve of the second order in the polyfit equation form:
+
+$𝑓(𝑦)=𝐴𝑦^{2}+𝐵𝑦+𝐶$
+
+![fig12](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/696c4df4-9ca9-4deb-9915-168d2d4eec8f)
+
+It has been adapted f (y), rather than f (x), because the lane lines in the image are deformed almost vertical and may have the same x value for more than a y value. Once the method that uses the sliding windows to trace the lanes in the distance has been created, it is necessary to keep in mind that the use of this for each frame (for example of a video) could take a long time for the processing and therefore be inefficient.
+
+Since the lane lines do not move much from one frame to another in a video, it is not necessary to search for lanes again using the algorithm from the beginning, but more intelligently it is possible to search in a margin (set a priori) around to the position of the previous line (skipping the sliding window). This works as a sort of "Kalman filter" to predict the position of the lane lines in the next frame within an area of margin defined a priori. In this way, knowing exactly the position of the lines in a frame, it is possible to perform a targeted search around them in the next frame. This makes it easier to follow lane lines, as this method is equivalent to applying a custom region of interest for each frame. In particular, polynomial functions are used to determine which activated pixels fall within the areas of interest established by a margin (+/-).
+
+![fig13](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/472563ed-1603-40d7-861f-8cf690ed3836)
 
 
 
