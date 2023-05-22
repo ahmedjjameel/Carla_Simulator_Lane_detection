@@ -25,6 +25,14 @@ The Sobel operator is the main core of Canny edge detection algorithm. Applying 
 
 By obtaining the gradients of the images in both the x and y directions, it is possible to notice how these detect lane lines and collect different edges. In particular, the gradient in the x direction highlights the edges closest to the vertical, while the gradient in the y direction emphasizes the edges that are closest to horizontal lines. The Sobel operators combine Gaussian smoothing and differentiation, this implies that the output will be noise resistant.
 
+The Sobel operator used to obtain the gradients both in the direction of x and of y is also used to obtain images with magnitude and direction thresholds. The magnitude of the gradient represents the cornerstone of the detection of the edges of the Canny algorithm and that is why Canny works well to collect all the edges. In particular, it takes the absolute value of the x and y gradients, computed separately, and calculates the direction returning a binary mask where direction thresholds (min and max) are met. The different thresholded binary gradients results images are shown below:
+
+![fig2](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/b753e0c2-5705-4040-8203-6bebf2b6a243)
+
+
+
+
+
 
 
 
