@@ -61,7 +61,24 @@ This combination is very effective and robust to detect lane lines in different 
 
 ![fig55](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/0d4aa2dc-30da-4a2d-bdd5-682be9b6950f)
 
+These channels are filtered through a logical AND operator ("&") with particular thresholds that are different for each type to correctly isolate the pixels of the lane lines. Threshold values strongly depend both on the type of image being analyzed and on the type of channel taken into consideration. After that, their result is combined together via a logical OR operator ("|") to make the binary output image robust and reliable in detects lane lines pixels even with different colors.
 
+![fig66](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/aa16fbc8-9298-476e-aff5-09af2da5a34b)
+
+
+Finally, to minimize false detections and make identification even more effective, an OR operation was performed between color binary image and gradient binary image previously calculated (combining them), putting together in a single image the peculiarities of both solutions as shown below:
+
+![fig77](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/b779553c-08e8-4612-80b9-17a9ac7a2b4b)
+
+Using the current perspective space is not convenient for the calculation of lane distances. For this reason, to eliminate the perspective effect and simplify the calculations it is useful to exploit the perspective transformation, in particular the bird's eye view, which represents a valid tool both for the detection and for the adaptation of the lanes.
+Assuming that the lane lines lie on a flat 2D surface, it is possible to take advantage of a bird's eye perspective transformation (that is, observe the same image from above) both to see the parallel lane lines (more or less depending on curvature), and to enlarge those lane lines distant from the vehicle, which otherwise would be small and therefore difficult to identify. This is extremely useful, especially for road images, since it allows visualizing the lanes from above in such a way that it is easier not only to apply model fitting to this top-view image that can accurately represent the lane, but also to calculate the curvature of the lane and the vehicle's offset.
+
+The idea behind the perspective transformation is based on mapping the pixels of the original image (front view) to an image with a new perspective (viewed from above). The BEV (bird's eye view) perspective transformation can be applied to an image through 2 openCV function: getPerspectiveTransform() to calculate a perspective transform matrix based on four pairs of points (source points and destination points) and warpPerspective() function to apply it on the original image. These 2 functions are used by the binary_transform() function, which through the source and destination points computes the perspective transformation matrix and its inverse, and applies it to the binary image previously obtained, so returning a binary warped image.
+
+The source points of interest represent the 4 coordinate points in the original image that lie on the plane in the physical world that are mapped to the destination points of interest, which represent the 4 coordinate points in the warped image. It is necessary to note that the four source points must be chosen accurately as they represent the fundamental task of selecting the region of interest (ROI) having the typically trapezoidal shape as shown below:
+
+
+![fig88](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/be7654b1-3479-4aee-a09b-72e50d574285)
 
 
 
