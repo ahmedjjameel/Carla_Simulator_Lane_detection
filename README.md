@@ -141,6 +141,11 @@ The offset of the center of the lane from the center of the image (converted fro
 
 ![fig15](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/e4b57e5e-546e-4e8c-9d60-8e3ae176c413)
 
+The offset of the car from the center of the lane was obtained by averaging the coordinates of the starting points for identifying the left and right lane lines, subtracting the latter from the middle point of the camera. Finally, to obtain a compliant measurement, the result is multiplied by the so called pixels-to-meters ratio, i.e. the ratio between the effective width in meters of the lane (3.5m in this case) and the pixels of the lane (720) so as to obtain a conversion from pixels space to meters (world space).
+
+In addition, based on the offset value, it is also possible to understand in which direction the vehicle is moving in relation to the centre of the lane: if the offset is positive, the vehicle is positioned to the right with respect to the centre of the lane, and vice versa. 
+The final result was thus obtained that is shown below:
+
 
 
 
