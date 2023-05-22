@@ -146,6 +146,6 @@ The offset of the car from the center of the lane was obtained by averaging the 
 In addition, based on the offset value, it is also possible to understand in which direction the vehicle is moving in relation to the centre of the lane: if the offset is positive, the vehicle is positioned to the right with respect to the centre of the lane, and vice versa. 
 The final result was thus obtained that is shown below:
 
-
-
+![car1](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/f59f0c7d-a1c8-4cea-b933-9c0f1611efbc)  |   ![car2](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/a59b85ab-0738-4919-80ed-564192636d38)
+:-------------------------:|:-------------------------:
 
