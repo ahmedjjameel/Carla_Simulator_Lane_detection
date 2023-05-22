@@ -149,3 +149,7 @@ The final result was thus obtained that is shown below:
 ![car1](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/f59f0c7d-a1c8-4cea-b933-9c0f1611efbc)  |   ![car2](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/a59b85ab-0738-4919-80ed-564192636d38)
 :-------------------------:|:-------------------------:
 
+
+![car11](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/bb27d3cf-722c-4ec0-8e0d-6dbfdc5743f4)  | ![car22](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/4d4f1420-5c0c-4199-879f-e858c1b99d82)
+:-------------------------:|:-------------------------:
+
