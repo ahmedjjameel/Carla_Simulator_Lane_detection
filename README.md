@@ -28,8 +28,6 @@ By obtaining the gradients of the images in both the x and y directions, it is p
 The Sobel operator used to obtain the gradients both in the direction of x and of y is also used to obtain images with magnitude and direction thresholds. The magnitude of the gradient represents the cornerstone of the detection of the edges of the Canny algorithm and that is why Canny works well to collect all the edges. In particular, it takes the absolute value of the x and y gradients, computed separately, and calculates the direction returning a binary mask where direction thresholds (min and max) are met. The different thresholded binary gradients results images are shown below:
 
 
-![fig22](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/e3fffdb2-cf7a-4901-a1d8-81d9bf143f5d)
-
 ![fig222](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/be02d7de-4320-4316-8e0e-d27a2daf9609)
 
 
