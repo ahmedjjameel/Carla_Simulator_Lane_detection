@@ -48,6 +48,22 @@ Hue is the value that represents color independent of any change in brightness, 
 ![fig44](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/13ebf4b8-2e16-4ef0-b927-0a62e9224d7c)
 
 
+Therefore, it is important not only to view each color space channel in such a way as to be able to distinguish and choose the one that is best able to identify lane lines but also use a channel that is more robust than the others and under changing conditions. Assuming that lane lines can be either yellow or white, different color spaces channels were tested using different thresholds.
+At the end, among all, 4 different color spaces were used: RGB, HLS, LUV and LAB to help detect lane lines of different colors and under different lighting conditions.
+Consequently, it has been concluded that the best combination to detect the lane lines of the road is to use the following channels:
+•	The R channel of the RGB color space: it has the appropriate information to identify the white lane lines as well as yellow
+•	The S channel from the HLS color space: it was used to highlight the yellow lane lines uniformly
+•	The B channel from the LAB color space: it is useful for enhancing the identification of the yellow lanes especially in low light conditions since it has the highest signal­ to-noise ratio
+•	The L channel from the LUV color space: it is able to detect white and yellow lane lines almost perfectly
+This combination is very effective and robust to detect lane lines in different lighting and road conditions as it offers redundancy and therefore the possibility of detecting the pixels of both lane lines (white or yellow) even in the case where 1 of them should fail. The results are shown below:
+
+
+![fig55](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/0d4aa2dc-30da-4a2d-bdd5-682be9b6950f)
+
+
+
+
+
 
 
 
