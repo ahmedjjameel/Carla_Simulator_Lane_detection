@@ -15,3 +15,8 @@ The steps that exploit various and complex artificial vision techniques to extra
 10.	Display the final result with the information associated to the point 8
 
 In order to be able to extract particular information from a lane in an image in a reliable and precise way, it is necessary to look for and highlight some typical features in the image. First, the image is read and resized to HD resolution as shown below through OpenCV library in such a way to be able to subsequently identify more easily the ROI vertices.
+
+![carlaimg](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/04deb8c8-34dd-43b3-b373-9727becacd8e)
+
+
+
