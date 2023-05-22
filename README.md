@@ -18,5 +18,9 @@ In order to be able to extract particular information from a lane in an image in
 
 ![carlaimg](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/04deb8c8-34dd-43b3-b373-9727becacd8e)
 
+Several transformations are applied to the initial image, which are then intelligently combined together in order to obtain a clear and reliable binary image capable of accurately detecting lane lines. By using the Canny method, it is possible to find all the possible lines in an image, but in addition to the detection of the lane lines the algorithm also provided many edges on landscapes, cars and other objects of no interest which are then discarded. Regarding the search for lane lines, it is known in advance that the lines we are trying to identify can be approximated by vertical lines and both lane lines generally have a high contrast with respect to the road. For this reason, it is possible to take these advantages by using gradients in a smarter and more efficient way to detect steep edges that are more likely to be identified as lanes in the first place.
+The Sobel operator is the main core of Canny edge detection algorithm. Applying the Sobel operator to a given image, it is possible to obtain the derivative of the image in the x or y direction in order to filter what we are looking for. Keeping in mind that the kernel size can be represented by any number, as long as it is odd, and using the minimum size of a kernel (which implies a 3x3 operator in each case) the Sobelx and Sobely operators, respectively.
+
+
 
 
