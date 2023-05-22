@@ -80,8 +80,26 @@ The source points of interest represent the 4 coordinate points in the original 
 
 ![fig88](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/be7654b1-3479-4aee-a09b-72e50d574285)
 
+In particular, the upper part of the trapezoid must be sufficiently high in the original image to be able to detect the lanes located near the horizon to allow the algorithm to both adequately calculate the curvature of the lane and to increase the number of line segments in order to perform a better fit. To search for these points correctly and quickly, the find_ROI_coordinates.py python script can be used.
 
 
+![fig9](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/13bdc7f5-185b-457a-b9dc-bae045460cfb)
+
+It is important to note that the trapezoid deriving from the coordinates of the source points in the original image is transformed (mapped) into a rectangle in the warped image.
+Another thing that is worth noting is that, when the algorithm reconstructs the warped image through the bird's eye view, this is more blurred in all those points where the lane lines are more distant than the vehicle because there are fewer pixels for the reconstruction bringing the algorithm to lower the resolution. By obtaining the perspective transformation, it is possible to visually check whether the lines are approximately straight or not. After applying a correct perspective transformation to the road image, the output obtained will be a binary image in which the lane lines stand out visibly as shown below: 
+
+
+![fig10](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/bcbc98a3-a8d7-43c3-b51c-1c73e3272d4d)
+
+
+However, it is necessary to establish which pixels must be part of the lane lines and especially which ones belong to the left or right line. A quick and efficient solution to this problem lies in representing a histogram capable of tracing binary activations in order to find the starting point of lane lines, using get_histogram() function,  fulfills this work. In this way, using the histogram, the values of each pixel are summed along each column in the image, since lane lines are likely to be mostly vertical nearest to the car.
+In the deformed binary input image, the pixels forming the lane lines are represented by white (logic value 1) instead the pixels that are not part of them are represented by black (logic value 0). Thus, the two most important peaks (i.e. those with the highest value) in the histogram can be easily identified as candidates that will indicate the x position of the starting point of the lane lines. The result is shown below:
+
+![fig11](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/7d54e520-d58e-4055-bdb6-b5667596122b)
+
+The histogram is divided exactly in half, based on its midpoint value, a left and a right part in order to do the computation more easily. Then the maximum point in each part is calculated, which will be taken into consideration when the windows around these maxima will be created. In this way, it is possible to exploit together the deformed binary image and the histogram to be able to use the sliding window method. It is placed in the central position of the lane lines for both the right and left lanes, and it is used to find and follow the lines to the top of the entire image frame (i.e. at the maximum height) including the lines distant from the vehicle further along the road to determine their direction.
+The steps to execute the sliding windows method described below are searchable in the sliding_window(), skip_sliding_window() and display_poly() functions for Python program.
+Firstly, the histogram of the bottom half of the image is taken and it is split into two sides, one for each lane line in order to get the left and right peak. These peaks will represent the starting point to reconstruct the left and the right lines. After entering the parameters a priori to set the appearance of the windows, also called hyperparameters (like the number of sliding windows, the height of windows, the width of the windows margin, the minimum number of pixels found in order to re-center window), and having previously obtained the lane lines starting points using the histogram, it is possible to trace the curvature of the right and left lane lines.
 
 
 
