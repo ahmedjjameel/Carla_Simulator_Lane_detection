@@ -83,7 +83,9 @@ The source points of interest represent the 4 coordinate points in the original 
 In particular, the upper part of the trapezoid must be sufficiently high in the original image to be able to detect the lanes located near the horizon to allow the algorithm to both adequately calculate the curvature of the lane and to increase the number of line segments in order to perform a better fit. To search for these points correctly and quickly, the find_ROI_coordinates.py python script can be used.
 
 
-![fig9](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/13bdc7f5-185b-457a-b9dc-bae045460cfb)
+![fig99](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/f705cbb8-d519-433c-8fc2-adb78c52c828)
+
+
 
 It is important to note that the trapezoid deriving from the coordinates of the source points in the original image is transformed (mapped) into a rectangle in the warped image.
 Another thing that is worth noting is that, when the algorithm reconstructs the warped image through the bird's eye view, this is more blurred in all those points where the lane lines are more distant than the vehicle because there are fewer pixels for the reconstruction bringing the algorithm to lower the resolution. By obtaining the perspective transformation, it is possible to visually check whether the lines are approximately straight or not. After applying a correct perspective transformation to the road image, the output obtained will be a binary image in which the lane lines stand out visibly as shown below: 
