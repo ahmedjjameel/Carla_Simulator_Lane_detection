@@ -129,3 +129,9 @@ Finally, the radius of curvature for the left and right lane lines is averaged, 
 ![fig14](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/794c84f1-5895-46a6-b640-69ec228687f7)
 
 
+![fig144](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/ee9c3cde-171b-4ed7-ac88-d94ef20a4d21)
+
+
+
+
+
