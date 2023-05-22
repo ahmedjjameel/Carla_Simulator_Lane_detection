@@ -149,3 +149,8 @@ The final result was thus obtained that is shown below:
 ![fig1-1](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/4bb64a4a-7534-4465-b8fc-9e307ed73b48)  |  ![figg1-1](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/d6544227-9a79-4cfc-aeaf-06e3a1e18088)
 :-------------------------:|:-------------------------:
 
+### Output Video
+After applying various algorithms, we will obtain results after plotting everything on the Image and writing it into video.
+
+![gif1](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/3db5fd20-a440-4c2e-8c01-13fe4fbcf748)  |   ![gif2](https://github.com/ahmedjjameel/Carla_Simulator_Lane_detection/assets/81799459/bcf975b5-066d-4d58-8630-07f5adea52b8)
+:-------------------------:|:-------------------------:
